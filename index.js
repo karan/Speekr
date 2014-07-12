@@ -1,4 +1,7 @@
 var express = require('express'),
+    http = require('http'),
+    routes = require('./private/routes'),
+    // user = require('./private/routes/user'),
     path = require('path'),
     passport = require('passport'),
     auth = require('./private/auth');
@@ -72,6 +75,7 @@ app.get('/', get.index);
 // POST
 
 
+require('./private/models/user');
 require('./private/pass.js')(passport);
 
 http.createServer(app).listen(app.get('port'), function(){
