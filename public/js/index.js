@@ -104,6 +104,22 @@ $(function () {
     })
   }
 
+  // Ajax requests
+  
+  $.ajax({
+    url: '/user',
+    success: function(user) {
+      // load up profile, take to languages page
+      $('.signinButton').click();
+      $('.profilePhoto').attr('src', user.photo);
+      $('.displayName').text(user.name);
+    },
+    error: function(xhr,status,error) {
+      // take to signup page
+      $loginPage.show();
+    }
+  });
+
   // Event listeners
 
   $('.signinButton').click(function() {
