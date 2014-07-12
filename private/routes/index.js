@@ -2,7 +2,11 @@ var User = require('./../models/user');
 var Thing = require('./../models/thing');
 
 exports.index = function (req, res){
-  res.render('index');
+  if (req.isAuthenticated()) {
+    return res.render('index', {user: req.user});
+  } else {
+    return res.render('index');
+  }
 };
 
 exports.authError = function(req, res) {

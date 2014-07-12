@@ -21,6 +21,10 @@ $ gulp
 
 **Requires sign-in**
 
+#### `/`
+
+Return `user` if the user is logged in otherwise not.
+
 #### `GET /user`
 
 Returns details of logged in user in JSON format.
