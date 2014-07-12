@@ -63,7 +63,8 @@ module.exports = function (passport) {
           levels: {
             en: { scores: 0, level: 1 },
             es: { scores: 0, level: 1 },
-            zh: { scores: 0, level: 1 }
+            zh: { scores: 0, level: 1 },
+            fr: { scores: 0, level: 1 }
           }
         }).save(function(err, newUser) {
           if (err) return done(err);
