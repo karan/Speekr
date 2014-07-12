@@ -8,6 +8,7 @@ var Constants = require('./constants');
 
 // bring in the schema for user
 var User = require('mongoose').model('User');
+var Thing = require('mongoose').model('Thing');
 var request = require('request');
 
 module.exports = function (passport) {
@@ -51,7 +52,7 @@ module.exports = function (passport) {
         if (err) return done(err);
         console.log("new user found");
 
-        var newUser = new User({
+        new User({
           linkedinId: profile.id,
           accessToken: token,
           accessTokenSecret: tokenSecret,

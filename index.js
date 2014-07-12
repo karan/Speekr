@@ -27,7 +27,6 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.static(path.join(__dirname, 'public')));
-  app.use(express.static(path.join(__dirname, 'bower_components')));
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
@@ -45,6 +44,8 @@ app.configure(function(){
 //
 // Routes
 //
+
+// require('./save_gen');
 
 // GET
 app.get('/', routes.index);

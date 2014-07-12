@@ -4,8 +4,7 @@ exports.index = function (req, res){
 };
 
 exports.authError = function(req, res) {
-  // res.render('index', { success: 'false' });
-  res.send('Error while auth');
+  res.render('index', { success: 'false' });
 };
 
 exports.authSuccess = function(req, res) {

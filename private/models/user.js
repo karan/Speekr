@@ -34,7 +34,26 @@ var userSchema = new Schema({
   name: {
     type: String
   },
-  linkedinId: String
+  linkedinId: String,
+  // scores and levels for each language
+  en_score: {
+    type: Number
+  },
+  en_level: {
+    type: Number  // 1 = word, 2 = sentence, 3 = paragraph
+  },
+  es_score: {
+    type: Number
+  },
+  es_level: {
+    type: Number  // 1 = word, 2 = sentence, 3 = paragraph
+  },
+  zh_score: {
+    type: Number
+  },
+  zh_level: {
+    type: Number  // 1 = word, 2 = sentence, 3 = paragraph
+  },
 });
 
 
