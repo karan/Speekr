@@ -23,7 +23,9 @@ $ gulp
 
 #### `GET /user`
 
-Returns details of logged in user
+Returns details of logged in user in JSON format.
+
+Returns 401 error and `{}` if no user logged in
 
 #### `GET /next_thing`
 
