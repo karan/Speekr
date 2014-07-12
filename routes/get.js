@@ -1,4 +1,4 @@
 // GET reqs
-exports.index = function (res, req) {
+exports.index = function (req, res) {
   res.send('hello');
 };

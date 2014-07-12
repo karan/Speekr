@@ -8,7 +8,7 @@ Improve your fucking accent
 #### Start server
 
 ```bash
-$ node .
+$ nodemon .
 ```
 
 #### Start development
