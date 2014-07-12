@@ -3,7 +3,7 @@
  */
 
 var settings = {
-  url: 'mongodb://localhost:27017/speekr'
+  url: 'mongodb://heroku_app27330918:ds2ac8h1hjnmheeao6pjsaqsu3@ds037827.mongolab.com:37827/heroku_app27330918'
 };
 
 /**
