@@ -42,9 +42,9 @@ module.exports = function (passport) {
     },
     function(token, tokenSecret, profile, done) {
       console.log(profile);
-      User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-        return done(err, user);
-      });
+      // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
+      //   return done(err, user);
+      // });
     }
   ));
   // passport.use(new LinkedinStrategy({

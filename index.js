@@ -28,14 +28,14 @@ app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(function(req, res, next) {
-      if (req.url != '/favicon.ico') {
-          return next();
-      } else {
-          res.status(200);
-          res.header('Content-Type', 'image/x-icon');
-          res.header('Cache-Control', 'max-age=4294880896');
-          res.end();
-      }
+    if (req.url != '/favicon.ico') {
+        return next();
+    } else {
+        res.status(200);
+        res.header('Content-Type', 'image/x-icon');
+        res.header('Cache-Control', 'max-age=4294880896');
+        res.end();
+    }
   });
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(express.logger('dev'));
@@ -58,11 +58,11 @@ db.connect();
 // Routes
 //
 
-var get = require('./routes/get');
-var post = require('./routes/post');
-
 // GET
-app.get('/', get.index);
+app.get('/', routes.index);
+app.get('/auth/linkedin', passport.authenticate("linkedin"));
+app.get('/auth/linkedin/callback', passport.authenticate('linke', { failureRedirect: '/auth/error' }), routes.authSuccess);
+app.get('/auth/error', routes.authError);
 
 // POST
 
