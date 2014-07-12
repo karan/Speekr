@@ -11,7 +11,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video
+time, mark, audio, video, button
   margin 0
   padding 0
   border 0
@@ -36,6 +36,9 @@ table
   border-collapse collapse
   border-spacing 0
 
+*
+  box-sizing border-box
+
 // END RESET CSS
 
 html, body, .page, .content
@@ -58,7 +61,6 @@ body
   position: relative
 
 // Login
-
 .page.login
   .modal
     modalWidth = 400px
@@ -85,6 +87,22 @@ body
       margin-bottom 30px
 
 // Home
+.page.home
+  .content
+    .languages
+      margin 0 auto
+      max-width 400px
+      .languageArea
+        width 50%
+        display: inline-block
+        .languageButton
+          text-align: center
+          padding 10%
+          width 100%
+          height 100%
+          .languageBox
+            background-color blue
+
 
 // Game
 
