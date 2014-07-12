@@ -18,7 +18,7 @@ button(color)
     box-shadow 0 shadowHeight 0 color
     margin-top shadowHeight
 
-  box-shadow 0px 6px 0 0 darken(color, shadowDarkenAmount)
+  box-shadow 0px shadowHeight*2 0 0 darken(color, shadowDarkenAmount)
 
 html, body, .page, .content
   height 100%
@@ -125,7 +125,24 @@ headerHeight = 50px
   .content
     background-color blue
     .speak
-      button(rgb(red))
+      width 50px
+      height 50px
+      border-radius 50%
+      background-color white
+      border 1px solid #999
+      transition background-color transitionSpeed
+      box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.26)
+      cursor pointer
+      outline none
+      &:hover
+        background-color #eee
+      .icon
+        opacity 0.3
+        background url("data:image/gif;base64,R0lGODlhHAAmAKIHAKqqqsvLy0dHR/b29ouLi+Tk5AAAAP///yH5BAEAAAcALAAAAAAcACYAAAOueLo8IMYIMJi9DcYtKv6KtnHgB4yoAZSXmEqs9aIxM4/1cm+5ske9w88QHBZ/x13ytpw1X89UlIYZeYRIxWBWWLhSgkVhJFopTjfzAS0hkLyzMDxCCIy62q/kOt4EDiJyCw8RExaBZyMEOW4bai5qII2FDH0ceBcFX5gKdigCAXgFhCh/F55DI6YYmqkSqx8DkzcEVywOAi65FEE2PL0XOMAyv8M6xcZYQMk+yB8JADs=") no-repeat center
+        background-size 20px 25px
+        margin 0 auto
+        width 20px
+        height 25px
 
 // Init CSS
 
