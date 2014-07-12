@@ -4,16 +4,17 @@ var express = require('express'),
     // user = require('./private/routes/user'),
     path = require('path'),
     passport = require('passport'),
-    auth = require('./private/auth');
+    auth = require('./private/auth'),
+    Constants = require('./private/constants');
 
 var app = express();
 var db = require('./private/db/connect');
 var RedisStore = require('connect-redis')(express);
 var redis;
 
-if (process.env.REDISTOGO_URL) {
+if (Constants.REDISTOGO_URL) {
   console.log("using reditogo");
-  rtg   = require('url').parse(process.env.REDISTOGO_URL);
+  rtg   = require('url').parse(Constants.REDISTOGO_URL);
   redis = require('redis').createClient(rtg.port, rtg.hostname);
   redis.auth(rtg.auth.split(':')[1]); // auth 1st part is username and 2nd is password separated by ":"
 } else {
