@@ -1,7 +1,7 @@
 Speekr
 ======
 
-Improve your fucking accent
+Your private spoken language tutor.
 
 ### Quickstart
 
