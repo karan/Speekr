@@ -32,11 +32,6 @@ ol, ul
 blockquote, q
   quotes none
 
-blockquote:before, blockquote:after,
-q:before, q:after
-  content ''
-  content none
-
 table
   border-collapse collapse
   border-spacing 0
@@ -44,7 +39,47 @@ table
 // END RESET CSS
 
 body
-  background-color #d23934
+  background-color #d24944
   font-family RobotoDraft
   font-weight 300
   color white
+
+// Login
+
+.content.login
+  .modal
+    modalWidth = 400px
+    modalHeight = 300px
+    position absolute
+    left 50%
+    top 50%
+    margin-left -(modalWidth/2)
+    margin-top -(modalHeight/2)
+    width modalWidth
+    height modalHeight
+
+    text-align center
+
+    .logo
+      margin-bottom 50px
+
+    .title
+      font-size 60px
+      margin-bottom 40px
+
+    .subtitle
+      font-size 30px
+      margin-bottom 30px
+
+// Home
+
+// Game
+
+// Init CSS
+header
+  display none
+.content
+  & .home
+    display none
+  & .game
+    display none
