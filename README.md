@@ -59,6 +59,10 @@ Body params:
 
 Returns new user object
 
+#### `GET /leaderboard`
+
+Returns list of all users
+
 ## Calculate score between strings:
 
     script(src="js/levenshtein.js")

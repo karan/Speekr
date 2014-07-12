@@ -56,3 +56,10 @@ exports.submitScore = function(req, res) {
   });
 
 }
+
+// get all users for the leaderboard
+exports.leaderboard = function(req, res) {
+  User.find({}, function(err, users) {
+    res.send(200, users);
+  });
+}

@@ -56,6 +56,8 @@ app.get('/auth/error', routes.authError);
 app.get('/user', routes.getUser);
 app.get('/next_thing', auth.requiresLogin, routes.nextThing);
 
+app.get('/leaderboard', routes.leaderboard);
+
 // POST
 app.post('/submit_score', auth.requiresLogin, routes.submitScore);
 
