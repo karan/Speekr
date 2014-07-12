@@ -53,6 +53,19 @@ app.configure(function(){
 // Connect to db
 db.connect();
 
+//
+// Routes
+//
+
+var get = require('./routes/get');
+var post = require('./routes/post');
+
+// GET
+app.get('/', get.index);
+
+// POST
+
+
 require('./private/pass.js')(passport);
 
 http.createServer(app).listen(app.get('port'), function(){
