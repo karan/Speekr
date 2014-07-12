@@ -2,7 +2,10 @@ $(function () {
   var ANIMATION_DURATION = 400;
   var LONG_ANIMATION_DURATION = 1000;
   var ANIMATION_EASING = 'easeInQuad';
+
+  var language; // current language
   var inPageTransition = false;
+  var round = {}; // data of the current round
 
   var $loginPage = $('.page.login');
   var $homePage = $('.page.home');
@@ -82,7 +85,7 @@ $(function () {
       }
     });
   }
-  function enterGame (language) {
+  function enterGame () {
     $gamePage.show();
     $game.addClass('transitionsDisabled');
     $game.css('transform', 'perspective(500px) translateZ(-100px)');
@@ -91,8 +94,6 @@ $(function () {
       $game.css('transform', 'perspective(500px) translateZ(0px)');
     }, 100);
     $game.addClass(language);
-
-    $()
 
     $game.find('.bigbutton').css('opacity', 0).delay(400).css({
       top: '100px'
@@ -103,8 +104,34 @@ $(function () {
       duration: LONG_ANIMATION_DURATION,
       ease: ANIMATION_EASING,
       complete: function () {
+        inPageTransition = false;
       }
-    })
+    });
+
+    startRound();
+  }
+
+  function startRound () {
+    // Get data for round
+    // $.getJSON('/next_thing', function (data) {
+      // temp
+      data = {
+        thing: 'what are you doing'
+      };
+
+      setTimeout(function () {
+        round.thing = data.thing;
+        // Play thing
+        Speak(round.thing, language, function () {
+          
+        });
+      }, 3000);
+    // });
+  }
+
+  function endRound (score) {
+    // save score and move on to next word
+    console.log(score);
   }
 
   // Ajax requests
@@ -133,8 +160,18 @@ $(function () {
     }
   });
 
+  $('.bigbutton').click(function () {
+    if (!inPageTransition) {
+      $('.bigbutton').addClass('active');
+      Hear(language, function (userThing) {
+        $('.bigbutton').removeClass('active');
+        var score = Score(round.thing, userThing);
+        endRound(score);
+      });
+    }
+  });
+
   $('.languageButton').click(function(a, b) {
-    var language;
     var $this = $(this);
     if ($this.hasClass('en')) {
       language = 'en';
@@ -148,7 +185,7 @@ $(function () {
     if (!inPageTransition) {
       inPageTransition = true;
       exitHome();
-      enterGame(language);
+      enterGame();
     }
   });
 });
