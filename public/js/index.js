@@ -1,5 +1,6 @@
 $(function () {
   var ANIMATION_DURATION = 400;
+  var LONG_ANIMATION_DURATION = 1000;
   var ANIMATION_EASING = 'easeInQuad';
   var inPageTransition = false;
 
@@ -22,23 +23,81 @@ $(function () {
     });
   }
   function enterHome () {
-    $homePage.css('display', 'block');
+    $homePage.show();
     $home.css('top', '100%').animate({
       top: '0%'
     }, {
       duration: ANIMATION_DURATION,
       ease: ANIMATION_EASING,
       complete: function () {
-        console.log('hi');
+        inPageTransition = false;
       }
     });
+  }
+
+  function exitHome () {
+    // Split the home page into 2 halves and slide like curtains
+    var $left = $home.clone();
+    var $right = $home.clone();
+    $home.hide();
+
+    // Create DOM
+    var $leftCurtain = $('<div>').addClass('curtain');
+    var $rightCurtain = $('<div>').addClass('curtain');
+    $leftCurtain.html($left);
+    $rightCurtain.html($right);
+    $homePage.append($leftCurtain, $rightCurtain);
+
+    // Position curtains
+    $leftCurtain.css({
+      left: '0%'
+    });
+    $rightCurtain.css({
+      right: '0%'
+    });
+    $right.css({
+      left: '-100%'
+    });
+
+    // Animate
+    $leftCurtain.animate({
+      left: '-50%'
+    }, {
+      duration: LONG_ANIMATION_DURATION,
+      ease: ANIMATION_EASING
+    });
+    $rightCurtain.animate({
+      right: '-50%'
+    }, {
+      duration: LONG_ANIMATION_DURATION,
+      ease: ANIMATION_EASING,
+      complete: function () {
+        // Reset home
+        $home.show();
+        // Exit home page
+        $homePage.hide();
+      }
+    });
+  }
+  function enterGame () {
+    // body...
   }
 
   // Event listeners
 
   $('.signinButton').click(function() {
-    exitLogin();
-    enterHome();
-    inPageTransition = true;
+    if (!inPageTransition) {
+      inPageTransition = true;
+      exitLogin();
+      enterHome();
+    }
+  });
+
+  $('.languageButton').click(function() {
+    if (!inPageTransition) {
+      inPageTransition = true;
+      exitHome();
+      enterGame();
+    }
   });
 });
