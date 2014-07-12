@@ -35,7 +35,7 @@ Returns 401 error and `{}` if no user logged in
 
 Parameters:
 
-`lang`: `en`, `es`, `zh`
+`lang`: `en`, `es`, `zh`, `fr`
 
 Response:
 
@@ -47,6 +47,17 @@ Response:
       __v: 0,
       created_at: "2014-07-12T06:21:07.468Z"
     }
+
+#### `POST /submit_score`
+
+Submit score of a play
+
+Body params:
+
+`lang` : en, es, zh, fr
+`score` : a score to send
+
+Returns new user object
 
 ## Calculate score between strings:
 

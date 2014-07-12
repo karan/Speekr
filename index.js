@@ -57,6 +57,7 @@ app.get('/user', routes.getUser);
 app.get('/next_thing', auth.requiresLogin, routes.nextThing);
 
 // POST
+app.post('/submit_score', auth.requiresLogin, routes.submitScore);
 
 
 require('./private/pass.js')(passport);

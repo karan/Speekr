@@ -37,3 +37,22 @@ exports.nextThing = function(req, res) {
     res.send(200, docs[Math.floor(Math.random()*docs.length)]);
   });
 }
+
+// submits the score for a thing
+exports.submitScore = function(req, res) {
+  var lang = req.body.lang;
+  var score = +req.body.score;
+
+  User.findById(req.user._id, function(err, user) {
+    var newScore = user.levels[lang].scores + score;
+    req.user.levels[lang].scores = newScore;
+    req.user.levels[lang].level = Math.floor(newScore/100) + 1;
+
+    User.update({_id: req.user._id}, {$set: {levels: req.user.levels}}, 
+      function(err, newUser) {
+        console.log(req.user);
+        res.send(200, req.user)
+      });
+  });
+
+}
