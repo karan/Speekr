@@ -10,11 +10,11 @@ block scripts
 block content
   header
     .left
-      img.logo(src='/img/logo.png')
-      h2 Speekr
+      a(href='/')
+        img.logo(src='/img/logo.png')
     .right
-      h4.displayName Grant
-      img.profilePhoto
+      h4.name Grant
+      img.profilePhoto(src='img/profile')
   .page.login
     .content
       .modal
@@ -43,5 +43,5 @@ block content
           .fromBottom
             p.text loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum 
         .bottomHalf
-          button.speak
+          button.bigbutton
             .icon
