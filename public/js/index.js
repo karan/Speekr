@@ -149,6 +149,10 @@ $(function () {
     startRound();
   }
 
+  function exitGame () {
+    $gamePage.fadeOut();
+  }
+
   function startRound () {
     round.end = false;
     bigButton('mic');
@@ -324,7 +328,7 @@ $(function () {
     if (!inPageTransition && currentPage !== 'leaderboard') {
       inPageTransition = true;
       exitHome();
-      // exitGame();
+      exitGame();
       enterLeaderboard();
       populateLeaderboard();
     }
