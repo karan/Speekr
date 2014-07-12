@@ -22,9 +22,6 @@ var Score = function(actualText, userText, thingType) {
       break;
   }
 
-  console.log(actualThingCount);
-  console.log(distance);
-
   var score = 10 - (distance / actualThingCount * 10);
 
   return score < 0 ? 0 : score;
