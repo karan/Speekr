@@ -146,6 +146,7 @@ $(function () {
     });
 
     updateScoreBar();
+    showScoreFeedback();
     startRound();
   }
 
@@ -315,6 +316,11 @@ $(function () {
     $('.scoreBar').css({
       width: scorePercent + '%'
     });
+  }
+
+  function showScoreFeedback() {
+    var score = userData.levels[language].scores;
+    console.log(score);
   }
 
   $('.languageButton').click(function(a, b) {

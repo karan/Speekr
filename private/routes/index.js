@@ -45,6 +45,9 @@ exports.submitScore = function(req, res) {
 
   User.findById(req.user._id, function(err, user) {
     var newScore = user.levels[lang].scores + score;
+    if (newScore >= 200) {
+      newScore = 199;
+    }
     req.user.levels[lang].scores = newScore;
     req.user.levels[lang].level = Math.floor(newScore/100) + 1;
 
