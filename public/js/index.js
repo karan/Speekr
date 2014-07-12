@@ -90,6 +90,18 @@ $(function () {
       $game.css('transform', 'perspective(500px) translateZ(0px)');
     }, 100);
     $game.addClass(language);
+
+    $game.find('.speak').css('opacity', 0).delay(400).css({
+      top: '100px'
+    }).animate({
+      top: '0px',
+      opacity: 1,
+    }, {
+      duration: LONG_ANIMATION_DURATION,
+      ease: ANIMATION_EASING,
+      complete: function () {
+      }
+    })
   }
 
   // Event listeners
