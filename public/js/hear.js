@@ -1,8 +1,9 @@
-var Hear = function(lang, callback) {
+var Hear = function(lang, callback, stopcb) {
   if (!('webkitSpeechRecognition' in window)) {
     console.log("speech recognition not supported");
   } else {
     var recognition = new webkitSpeechRecognition();
+    stopcb(recognition);
     var interim_transcript = '';
     var final_transcript = '';
     recognition.start();
@@ -39,13 +40,7 @@ var Hear = function(lang, callback) {
     };
 
     recognition.onend = function() {
-      if (!final_transcript) {
-        return;
-      }
-      if (window.getSelection) {
-        window.getSelection().removeAllRanges();
-      }
+      callback(final_transcript);
     };
-
   }
-}
+};

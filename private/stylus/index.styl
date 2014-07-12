@@ -5,6 +5,7 @@ enColor = rgb(82, 100, 174)
 esColor = rgb(29, 233, 182)
 frColor = rgb(255, 235, 41)
 zhColor = rgb(3, 169, 244)
+darkTextColor = rgb(97, 97, 97)
 
 shadowHeight = 3px
 shadowDarkenAmount = 30%
@@ -123,12 +124,12 @@ header
           width 100%
           height 100%
           &.es .languageBox
-            color rgb(97, 97, 97)
+            color darkTextColor
             button(esColor)
           &.en .languageBox
             button(enColor)
           &.fr .languageBox
-            color rgb(97, 97, 97)
+            color darkTextColor
             button(frColor)
           &.zh .languageBox
             button(zhColor)
@@ -151,8 +152,10 @@ header
     &.en
       background-color enColor
     &.es
+      color darkTextColor
       background-color esColor
     &.fr
+      color darkTextColor
       background-color frColor
     &.zh
       background-color zhColor
@@ -197,11 +200,22 @@ header
             background-color #eee
           .icon
             opacity 0.3
-            background url("/img/mic.png") no-repeat center
-            background-size buttonSize*0.4 buttonSize*0.4
+            &.mic
+              background url("/img/mic.png") no-repeat center
+              background-size buttonSize*0.4 buttonSize*0.4
+            &.right
+              background url("/img/right.png") no-repeat center
+              background-size buttonSize*0.4 buttonSize*0.4
+              margin-right 17px
             margin 0 auto
             width buttonSize*0.4
             height buttonSize*0.4
+    .scoreBar
+      position: absolute
+      bottom 0
+      height 10px
+      transition width transitionSpeed
+      background-color rgba(255, 255, 255, 0.5)
 
 // Init CSS
 // header

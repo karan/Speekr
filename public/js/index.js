@@ -6,6 +6,7 @@ $(function () {
   var language; // current language
   var inPageTransition = false;
   var round = {}; // data of the current round
+  var userData = {};
 
   var $loginPage = $('.page.login');
   var $homePage = $('.page.home');
@@ -125,10 +126,13 @@ $(function () {
       }
     });
 
+    updateScoreBar();
     startRound();
   }
 
   function startRound () {
+    round.end = false;
+    bigButton('mic');
     // Get data for round
     // $.getJSON('/next_thing', function (data) {
       // temp
@@ -146,6 +150,7 @@ $(function () {
         fontSize: fontSize + 'px'
       });
       $gameText.text(round.thing);
+      $gameText.fadeIn();
 
       setTimeout(function () {
         // Play thing
@@ -158,7 +163,28 @@ $(function () {
 
   function endRound (score) {
     // save score and move on to next word
-    console.log(score);
+    bigButton('right');
+    var data = {
+      lang: language,
+      score: score
+    };
+    round.end = true;
+    $.post('/submit_score', data, function (user) {
+      userData = user;
+      updateScoreBar();
+    });
+  }
+
+  // Sets the big button to a specific type
+  function bigButton (type) {
+    var $icon = $('.bigbutton .icon');
+    if (!$icon.hasClass(type)) {
+      $icon.removeClass('mic');
+      $icon.removeClass('right');
+      $icon.fadeOut(ANIMATION_DURATION, function() {
+        $icon.addClass(type).fadeIn(ANIMATION_DURATION);
+      });
+    }
   }
 
   // Ajax requests
@@ -170,6 +196,7 @@ $(function () {
       $('.signinButton').click();
       $('.profilePhoto').attr('src', user.photo);
       $('.name').text(user.name);
+      userData = user;
     },
     error: function(xhr,status,error) {
       // take to signup page
@@ -189,17 +216,37 @@ $(function () {
 
   $('.bigbutton').click(function () {
     if (!inPageTransition) {
-      $('.bigbutton').addClass('active');
-      Hear(language, function (userThing) {
-        $('.bigbutton').removeClass('active');
-        console.log(round.thing);
-        console.log(userThing);
-        console.log(round.thingType);
-        var score = Score(round.thing, userThing, round.thingType);
-        endRound(score);
-      });
+      if (round.end) {
+        // go to next round
+        // animate
+        $gameText.fadeOut();
+        startRound();
+      } else {
+        if ($('.bigbutton').hasClass('active')) {
+          // stop the recognition
+          round.recognition.stop();
+        } else {
+          // start recording
+          $('.bigbutton').addClass('active');
+          Hear(language, function (userThing) {
+            $('.bigbutton').removeClass('active');
+            var score = Score(round.thing, userThing, round.thingType);
+            endRound(score);
+            round.recognition = undefined;
+          }, function (recognition) {
+            round.recognition = recognition;
+          });
+        }
+      }
     }
   });
+
+  function updateScoreBar () {
+    var scorePercent = user.levels[language].score % 100;
+    $('.scoreBar').css({
+      width: scorePercent
+    });
+  }
 
   $('.languageButton').click(function(a, b) {
     var $this = $(this);
