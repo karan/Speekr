@@ -21,6 +21,8 @@ $(function () {
 
   var $gameText = $game.find('.gameArea .text');
 
+  $('.scoreNotif').hide();
+
   function exitLogin () {
     $login.animate({
       top: '-100%'
@@ -193,7 +195,7 @@ $(function () {
     $.post('/submit_score', data, function (user) {
       userData = user;
       updateScoreBar();
-      showScoreFeedback();
+      showScoreFeedback(score);
     });
     // create DOM for red words
     var wordsDiff = Differ(round.thing, round.userThing, round.thingType, language);
@@ -318,9 +320,22 @@ $(function () {
     });
   }
 
-  function showScoreFeedback() {
-    var score = userData.levels[language].scores;
-    console.log("hello --> " + score);
+  function showScoreFeedback(score) {
+    $('.scoreNotif').show();
+    $('.scoreNotif').text('+' + Math.floor(score));
+    $('.scoreNotif').delay(200).css({
+      bottom: '20px',
+      opacity: 1
+    }).animate({
+      bottom: '100px',
+      opacity: 0
+    }, {
+      duration: LONG_ANIMATION_DURATION,
+      ease: ANIMATION_EASING,
+      complete: function() {
+        // $('.scoreNotif').fadeOut();
+      }
+    });
   }
 
   $('.languageButton').click(function(a, b) {
