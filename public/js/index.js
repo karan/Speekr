@@ -146,7 +146,6 @@ $(function () {
     });
 
     updateScoreBar();
-    showScoreFeedback();
     startRound();
   }
 
@@ -194,6 +193,7 @@ $(function () {
     $.post('/submit_score', data, function (user) {
       userData = user;
       updateScoreBar();
+      showScoreFeedback();
     });
     // create DOM for red words
     var wordsDiff = Differ(round.thing, round.userThing, round.thingType, language);
@@ -320,7 +320,7 @@ $(function () {
 
   function showScoreFeedback() {
     var score = userData.levels[language].scores;
-    console.log(score);
+    console.log("hello --> " + score);
   }
 
   $('.languageButton').click(function(a, b) {

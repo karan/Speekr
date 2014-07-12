@@ -2,6 +2,9 @@
 
 var Differ = function(actualText, userText, thingType, lang) {
 
+  actualText = actualText.toLowerCase();
+  userText = userText.toLowerCase();
+
   if (thingType == "1" && lang !== 'zh') {
     // for words, they just have to be equal
     return [{
