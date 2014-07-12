@@ -16,8 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "platform": "~1.2.0",
-    "Polymer/core-elements": "*",
-    "Polymer/paper-elements": "*"
+    "platform": "~1.2.0"
   }
 }
