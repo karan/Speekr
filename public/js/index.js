@@ -134,12 +134,12 @@ $(function () {
     round.end = false;
     bigButton('mic');
     // Get data for round
-    // $.getJSON('/next_thing', function (data) {
+    $.getJSON('/next_thing?lang='+language, function (data) {
       // temp
-      data = {
-        thing: 'what are you doing',
-        thingType: '2'
-      };
+      // data = {
+      //   thing: 'what are you doing',
+      //   thingType: '2'
+      // };
 
       round.thing = data.thing;
       round.thingType = data.thingType;
@@ -154,11 +154,12 @@ $(function () {
 
       setTimeout(function () {
         // Play thing
+        console.log(language);
         Speak(round.thing, language, function () {
           
         });
       }, 3000);
-    // });
+    });
   }
 
   function endRound (score) {
@@ -242,7 +243,7 @@ $(function () {
   });
 
   function updateScoreBar () {
-    var scorePercent = user.levels[language].score % 100;
+    var scorePercent = userData.levels[language].score % 100;
     $('.scoreBar').css({
       width: scorePercent
     });
