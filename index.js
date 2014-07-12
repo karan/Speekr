@@ -6,13 +6,11 @@ var express = require('express'),
     passport = require('passport'),
     auth = require('./private/auth');
 
-
 var app = express();
 var db = require('./private/db/connect');
 var RedisStore = require('connect-redis')(express);
-
-
 var redis;
+
 if (process.env.REDISTOGO_URL) {
   console.log("using reditogo");
   rtg   = require('url').parse(process.env.REDISTOGO_URL);
@@ -23,6 +21,16 @@ if (process.env.REDISTOGO_URL) {
   redis = require("redis").createClient();
 }
 
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.use(express.favicon());
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.methodOverride());
+app.use(express.cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(app.router);
 app.configure(function(){
   app.set('port', process.env.PORT || 8888);
   app.set('views', __dirname + '/views');
