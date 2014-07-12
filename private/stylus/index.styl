@@ -1,6 +1,10 @@
 @import 'reset'
 
 bgColor = #d24944
+enColor = rgb(82, 100, 174)
+esColor = rgb(29, 233, 182)
+frColor = rgb(255, 235, 41)
+zhColor = rgb(3, 169, 244)
 
 shadowHeight = 3px
 shadowDarkenAmount = 30%
@@ -93,6 +97,16 @@ headerHeight = 50px
           padding 20%
           width 100%
           height 100%
+          &.es .languageBox
+            color rgb(97, 97, 97)
+            button(esColor)
+          &.en .languageBox
+            button(enColor)
+          &.fr .languageBox
+            color rgb(97, 97, 97)
+            button(frColor)
+          &.zh .languageBox
+            button(zhColor)
           .languageBox
             overflow: hidden
             width 100%
@@ -102,24 +116,21 @@ headerHeight = 50px
             font-size 40px
             color white
             vertical-align bottom
-            &.es
-              color rgb(97, 97, 97)
-              button(rgb(29, 233, 182))
-            &.en
-              button(rgb(82, 100, 174))
-            &.fr
-              color rgb(97, 97, 97)
-              button(rgb(255, 235, 41))
-            &.zh
-              button(rgb(3, 169, 244))
 
 // Game
 .page.game
   z-index 100
-  &:not(.transitionsDisabled)
-    transition transform 1s
   .content
-    background-color blue
+    &:not(.transitionsDisabled)
+      transition transform 1s
+    &.en
+      background-color enColor
+    &.es
+      background-color esColor
+    &.fr
+      background-color frColor
+    &.zh
+      background-color zhColor
     .speak
       width 50px
       height 50px
@@ -134,11 +145,11 @@ headerHeight = 50px
         background-color #eee
       .icon
         opacity 0.3
-        background url("data:image/gif;base64,R0lGODlhHAAmAKIHAKqqqsvLy0dHR/b29ouLi+Tk5AAAAP///yH5BAEAAAcALAAAAAAcACYAAAOueLo8IMYIMJi9DcYtKv6KtnHgB4yoAZSXmEqs9aIxM4/1cm+5ske9w88QHBZ/x13ytpw1X89UlIYZeYRIxWBWWLhSgkVhJFopTjfzAS0hkLyzMDxCCIy62q/kOt4EDiJyCw8RExaBZyMEOW4bai5qII2FDH0ceBcFX5gKdigCAXgFhCh/F55DI6YYmqkSqx8DkzcEVywOAi65FEE2PL0XOMAyv8M6xcZYQMk+yB8JADs=") no-repeat center
-        background-size 20px 25px
+        background url("/img/mic.png") no-repeat center
+        background-size 20px 20px
         margin 0 auto
         width 20px
-        height 25px
+        height 20px
 
 // Init CSS
 header

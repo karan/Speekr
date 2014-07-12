@@ -10,7 +10,7 @@ $(function () {
   
   var $login = $('.page.login .content');
   var $home = $('.page.home .content');
-  var $game = $('.page.game');
+  var $game = $('.page.game .content');
 
   function exitLogin () {
     $login.animate({
@@ -81,7 +81,7 @@ $(function () {
       }
     });
   }
-  function enterGame () {
+  function enterGame (language) {
     $gamePage.show();
     $game.addClass('transitionsDisabled');
     $game.css('transform', 'perspective(500px) translateZ(-100px)');
@@ -89,6 +89,7 @@ $(function () {
     setTimeout(function() {
       $game.css('transform', 'perspective(500px) translateZ(0px)');
     }, 100);
+    $game.addClass(language);
   }
 
   // Event listeners
@@ -101,11 +102,22 @@ $(function () {
     }
   });
 
-  $('.languageButton').click(function() {
+  $('.languageButton').click(function(a, b) {
+    var language;
+    var $this = $(this);
+    if ($this.hasClass('en')) {
+      language = 'en';
+    } else if ($this.hasClass('es')) {
+      language = 'es';
+    } else if ($this.hasClass('fr')) {
+      language = 'fr';
+    } else if ($this.hasClass('zh')) {
+      language = 'zh';
+    }
     if (!inPageTransition) {
       inPageTransition = true;
       exitHome();
-      enterGame();
+      enterGame(language);
     }
   });
 });
