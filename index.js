@@ -46,6 +46,8 @@ app.configure(function(){
 // Routes
 //
 
+require('./save_gen');
+
 // GET
 app.get('/', routes.index);
 app.get('/auth/linkedin', passport.authenticate("linkedin",
