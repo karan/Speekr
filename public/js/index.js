@@ -330,11 +330,8 @@ $(function () {
       bottom: '100px',
       opacity: 0
     }, {
-      duration: LONG_ANIMATION_DURATION,
-      ease: ANIMATION_EASING,
-      complete: function() {
-        // $('.scoreNotif').fadeOut();
-      }
+      duration: LONG_ANIMATION_DURATION + 500,
+      ease: ANIMATION_EASING
     });
   }
 
