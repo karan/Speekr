@@ -4,25 +4,35 @@
 
 var Constants = require('../constants');
 
-var settings = {
-  url: Constants.MONGOLAB_URI
-};
+// Established database connection
 
-/**
- * Connects to MongoDB
- */
-exports.connect = function() {
-  var uri = process.env.MONGOLAB_URI || settings.url;
+var mongoose = require('mongoose');
 
-  // Connect to db
-  var mongoose = require('mongoose');
-  mongoose.connect(uri);
+var dbURI = Constants.MONGOLAB_URI;
+mongoose.connect(dbURI);
 
-  var db = mongoose.connection;
-  db.on('error', function(err) {
-    console.log('connection error');
+// when connected with db
+mongoose.connection.on('connected', function() {
+  console.log('Connected to db ' + dbURI);
+});
+
+// some error when connecting
+mongoose.connection.on('error', function(err) {
+  console.log('Connection error: ' + err);
+});
+
+// disconnected from db
+mongoose.connection.on('disconnected', function() {
+  console.log('Disconnected from DB.');
+});
+
+// If the Node process ends, close the Mongoose connection
+process.on('SIGINT', function() {
+  mongoose.connection.close(function() {
+    console.log('Disconnected from DB by app.');
+    process.exit(0);
   });
-  db.once('open', function() {
-    console.log('connected to db ' + uri);
-  });
-};
+});
+
+// bring in all models
+require('./../models/user');
