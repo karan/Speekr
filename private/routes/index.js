@@ -9,5 +9,5 @@ exports.authError = function(req, res) {
 
 exports.authSuccess = function(req, res) {
   // res.redirect('/play');
-  res.send('Logged in fine'); 
+  res.send('Logged in fine');
 };
