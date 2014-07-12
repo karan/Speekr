@@ -19,6 +19,9 @@ var userSchema = new Schema({
   accessTokenSecret: {
     type: String
   },
+  photo: {
+    type: String
+  },
   username: {
     type: String,
     unique: true

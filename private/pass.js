@@ -38,46 +38,34 @@ module.exports = function (passport) {
   passport.use(new LinkedInStrategy({
       consumerKey: Constants.LINKEDIN.KEY,
       consumerSecret: Constants.LINKEDIN.SECRET,
-      callbackURL: "http://127.0.0.1:8888/auth/linkedin/callback"
+      callbackURL: "http://127.0.0.1:8888/auth/linkedin/callback",
+      profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url']
     },
     function(token, tokenSecret, profile, done) {
-      console.log(profile);
-      // User.findOrCreate({ linkedinId: profile.id }, function (err, user) {
-      //   return done(err, user);
-      // });
+      console.log(profile.displayName + ' logged in');
+      User.findOne({linkedinId : profile.id }, function(err, oldUser) {
+      if (oldUser) {
+        console.log("old user detected");
+        return done(null, oldUser);
+      } else {
+        if (err) return done(err);
+        console.log("new user found");
+
+        var newUser = new User({
+          linkedinId: profile.id,
+          accessToken: token,
+          accessTokenSecret: tokenSecret,
+          email: profile.emails[0].value,
+          name: profile.displayName,
+          photo: profile._json.pictureUrl,
+          username: profile.emails[0].value.split('@')[0],
+        }).save(function(err, newUser) {
+          if (err) return done(err);
+          return done(null, newUser);
+        });
+      }
+    });
     }
   ));
-  // passport.use(new LinkedinStrategy({
-  //   clientID: Constants.LINKEDIN.KEY,
-  //   clientSecret: Constants.,
-  //   callbackURL: Constants.Facebook.CALLBACK,
-  //   profileFields: ['id', 'emails', 'displayName', 'photos']
-  // }, function(accessToken, refreshToken, profile, done) {
-  //   User.findOne({$or: [{fbId : profile.id }, {email: profile.emails[0].value}]}, function(err, oldUser) {
-  //     if (oldUser) {
-  //       console.log("old user detected");
-  //       return done(null, oldUser);
-  //     } else {
-  //       if (err) return done(err);
-  //       console.log("new user found");
-
-  //       getFriends(accessToken, function(friends) {
-  //         console.log("got " + friends.length + " friends");
-  //         var newUser = new User({
-  //           fbId: profile.id,
-  //           accessToken: accessToken,
-  //           email: profile.emails[0].value,
-  //           name: profile.displayName,
-  //           photo: profile.photos[0].value,
-  //           username: profile.emails[0].value.split('@')[0],
-  //           friends: friends
-  //         }).save(function(err, newUser) {
-  //           if (err) return done(err);
-  //           return done(null, newUser);
-  //         });
-  //       });
-  //     }
-  //   });
-  // }));
 
 }

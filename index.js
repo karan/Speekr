@@ -47,7 +47,8 @@ app.configure(function(){
 
 // GET
 app.get('/', routes.index);
-app.get('/auth/linkedin', passport.authenticate("linkedin"));
+app.get('/auth/linkedin', passport.authenticate("linkedin",
+  { scope: ['r_basicprofile', 'r_emailaddress'] }));
 app.get('/auth/linkedin/callback', 
   passport.authenticate('linkedin', { failureRedirect: '/auth/error' }), 
   routes.authSuccess);
