@@ -6,9 +6,11 @@ $(function () {
 
   var $loginPage = $('.page.login');
   var $homePage = $('.page.home');
+  var $gamePage = $('.page.game');
   
   var $login = $('.page.login .content');
   var $home = $('.page.home .content');
+  var $game = $('.page.game');
 
   function exitLogin () {
     $login.animate({
@@ -80,7 +82,13 @@ $(function () {
     });
   }
   function enterGame () {
-    // body...
+    $gamePage.show();
+    $game.addClass('transitionsDisabled');
+    $game.css('transform', 'perspective(500px) translateZ(-100px)');
+    $game.removeClass('transitionsDisabled');
+    setTimeout(function() {
+      $game.css('transform', 'perspective(500px) translateZ(0px)');
+    }, 100);
   }
 
   // Event listeners

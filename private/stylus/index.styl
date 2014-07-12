@@ -73,6 +73,7 @@ headerHeight = 50px
 
 // Home
 .page.home
+  z-index 200
   .curtain
     position: absolute
     width: 50%
@@ -117,6 +118,14 @@ headerHeight = 50px
               button(rgb(3, 169, 244))
 
 // Game
+.page.game
+  z-index 100
+  &:not(.transitionsDisabled)
+    transition transform 1s
+  .content
+    background-color blue
+    .speak
+      button(rgb(red))
 
 // Init CSS
 
