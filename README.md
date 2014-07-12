@@ -19,9 +19,13 @@ $ gulp
 
 ## API
 
-Requires sign-in
+**Requires sign-in**
 
-`GET /next_thing`
+#### `GET /user`
+
+Returns details of logged in user
+
+#### `GET /next_thing`
 
 Parameters:
 
