@@ -24,7 +24,8 @@ block content
       .modal
         img.logo(src='/img/logo.png')
         h3.subtitle You don't know a language until you speak it.
-        button.signinButton Sign in with LinkedIn
+        a(href="/auth/linkedin")
+          button.signinButton Sign in with LinkedIn
   .page.home
     .content
       ul.languages
@@ -52,4 +53,4 @@ block content
       .scoreBar
   .page.leaderpage
     .content
-      ul.languages
+      ul.leaders
