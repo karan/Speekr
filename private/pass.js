@@ -39,7 +39,7 @@ module.exports = function (passport) {
   passport.use(new LinkedInStrategy({
       consumerKey: Constants.LINKEDIN.KEY,
       consumerSecret: Constants.LINKEDIN.SECRET,
-      callbackURL: "http://127.0.0.1:8888/auth/linkedin/callback",
+      callbackURL: "http://speekr.herokuapp.com/auth/linkedin/callback",
       profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url']
     },
     function(token, tokenSecret, profile, done) {
