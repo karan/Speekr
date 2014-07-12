@@ -31,7 +31,7 @@ var userSchema = new Schema({
   name: {
     type: String
   },
-  liId: String
+  linkedinId: String
 });
 
 

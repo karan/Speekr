@@ -2,8 +2,10 @@
  * Helpful database connection methods
  */
 
+var Constants = require('../constants');
+
 var settings = {
-  url: 'mongodb://heroku_app27330918:ds2ac8h1hjnmheeao6pjsaqsu3@ds037827.mongolab.com:37827/heroku_app27330918'
+  url: Constants.MONGOLAB_URI
 };
 
 /**
@@ -21,6 +23,6 @@ exports.connect = function() {
     console.log('connection error');
   });
   db.once('open', function() {
-    console.log('connected to db');
+    console.log('connected to db ' + uri);
   });
 };
