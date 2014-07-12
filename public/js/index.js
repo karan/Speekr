@@ -227,7 +227,11 @@ $(function () {
     url: '/user',
     success: function(user) {
       // load up profile, take to languages page
-      $('.signinButton').click();
+      if (!inPageTransition) {
+        inPageTransition = true;
+        exitLogin();
+        enterHome();
+      }
       $('.profilePhoto').attr('src', user.photo);
       $('.name').text(user.name);
       userData = user;
