@@ -2,7 +2,6 @@ var Speak = (function(text, lang, endcb) {
   var msg = new SpeechSynthesisUtterance();
   msg.text = text;
   msg.onend = endcb;
-  msg.rate = 0.5;
 
   if (lang == 'zh') {
     msg.lang = 'zh-CN';

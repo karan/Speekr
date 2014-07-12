@@ -7,6 +7,7 @@ $(function () {
   var inPageTransition = false;
   var round = {}; // data of the current round
   var userData = {};
+  var currentPage = 'login';
 
   var $loginPage = $('.page.login');
   var $homePage = $('.page.home');
@@ -16,7 +17,7 @@ $(function () {
   var $login = $('.page.login .content');
   var $home = $('.page.home .content');
   var $game = $('.page.game .content');
-  var $leaderboard = $('.page.leaderpage .content')
+  var $leaderboard = $('.page.leaderpage .content');
 
   var $gameText = $game.find('.gameArea .text');
 
@@ -33,6 +34,7 @@ $(function () {
     });
   }
   function enterHome () {
+    currentPage = 'home';
     $homePage.show();
     $home.css('top', '100%').animate({
       top: '0%'
@@ -46,7 +48,7 @@ $(function () {
     $('header').css('visibility', 'visible');
   }
   function enterLeaderboard () {
-    console.log("enter");
+    currentPage = 'leaderboard';
     $leaderboardPage.show();
     $leaderboard.css('top', '100%').animate({
       top: '0%'
@@ -54,7 +56,6 @@ $(function () {
       duration: ANIMATION_DURATION,
       ease: ANIMATION_EASING,
       complete: function () {
-        console.log("complete");
         inPageTransition = false;
       }
     });
@@ -106,6 +107,7 @@ $(function () {
     });
   }
   function enterGame () {
+    currentPage = 'game';
     $gamePage.show();
     $game.addClass('transitionsDisabled');
     $game.css('transform', 'perspective(500px) translateZ(-100px)');
@@ -162,7 +164,7 @@ $(function () {
       round.thingType = data.thingType;
 
       // Set the font size relative to the text size
-      var fontSize = 140/Math.sqrt(round.thing.length * 2);
+      var fontSize = 140/Math.sqrt(round.thing.length / 2);
       $gameText.css({
         fontSize: fontSize + 'px'
       });
@@ -240,8 +242,12 @@ $(function () {
     $.ajax({
       url: '/leaderboard',
       success: function(users) {
+        var $ul = $leaderboard.find('ul').html('');
+        console.log($ul);
         for (var i = 0; i < users.length; i++) {
-          $leaderboard.find('ul').append(users[i]);
+          var user = users[i];
+          var $li = $('<li>').html(user.name);
+          $ul.append($li);
         }
       }
     });
@@ -291,9 +297,10 @@ $(function () {
   });
 
   $('.leaderboard').click(function() {
-    if (!inPageTransition) {
+    if (!inPageTransition && currentPage !== 'leaderboard') {
       inPageTransition = true;
-      exitLogin();
+      exitHome();
+      // exitGame();
       enterLeaderboard();
       populateLeaderboard();
     }
