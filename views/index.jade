@@ -4,6 +4,8 @@ block scripts
   script(src='/js/jquery.min.js')
   script(src='/js/index.js')
 
+  script(src='/js/levenshtein.js')
+  script(src='/js/score.js')
   script(src='/js/speak.js')
   script(src='/js/hear.js')
   script(src='/js/levenshtein.js')
@@ -15,8 +17,8 @@ block content
       a(href='/')
         img.logo(src='/img/logo.png')
     .right
-      h4.name Grant
-      img.profilePhoto(src='img/profile')
+      h4.name
+      img.profilePhoto
   .page.login
     .content
       .modal
@@ -43,7 +45,7 @@ block content
       .gameArea
         .topHalf
           .fromBottom
-            p.text loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum loremipsum 
+            p.text 猫
         .bottomHalf
           button.bigbutton
             .icon

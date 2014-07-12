@@ -1,6 +1,7 @@
-var Speak = (function(text, lang) {
+var Speak = (function(text, lang, endcb) {
   var msg = new SpeechSynthesisUtterance();
   msg.text = text;
+  msg.onend = endcb;
 
   if (lang == 'zh') {
     msg.voice = 'zh-CN';
