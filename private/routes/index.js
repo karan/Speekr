@@ -15,6 +15,11 @@ exports.authSuccess = function(req, res) {
 
 // Main functions
 
+// get details for logged in user
+exports.getUser = function(req, res) {
+  res.send(200, req.user);
+}
+
 // return next thing for the passed language
 exports.nextThing = function(req, res) {
   var lang = req.query.lang;
