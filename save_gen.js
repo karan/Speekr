@@ -2,27 +2,32 @@ var Thing = require('mongoose').model('Thing');
 new Thing({
     thingType: "1",
     lang: "en",
-    thing: "cat"
+    thing: "encyclopedia"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "en",
-    thing: "dog"
+    thing: "destination"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "en",
-    thing: "apple"
+    thing: "peninsulas"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "en",
-    thing: "mine"
+    thing: "passenger"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "en",
-    thing: "your"
+    thing: "automobile"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "en",
+    thing: ""
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
@@ -41,68 +46,38 @@ new Thing({
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
-    lang: "es",
-    thing: "gato"
+    lang: "en",
+    thing: "population"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "en",
+    thing: "racketeer"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "es",
-    thing: "mío"
+    thing: "enciclopedia"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "es",
-    thing: "manzana"
+    thing: "destino"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "es",
-    thing: "perro"
+    thing: "penínsulas"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "es",
-    thing: "su"
+    thing: "pasajeros"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "es",
-    thing: "mejora"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "modificación"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "perro"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "aerialcat"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "manzana"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "mina"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "su"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "es",
-    thing: "mejora"
+    thing: "automóvil"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
@@ -112,97 +87,97 @@ new Thing({
 new Thing({
     thingType: "1",
     lang: "es",
-    thing: "aérea"
+    thing: "mejora"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "es",
+    thing: "Antena"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "es",
+    thing: "población"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "es",
+    thing: "mafioso"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "猫"
+    thing: "百科全书"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "狗"
+    thing: "目的地"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "苹果"
+    thing: "半岛"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "矿"
+    thing: "客运"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "井您"
+    thing: "汽车"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "的"
+    thing: "改装"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "修改"
+    thing: "改进"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "完善"
+    thing: "航空"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "航"
+    thing: "人口"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "zh",
-    thing: "空"
+    thing: "敲诈勒索"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "fr",
-    thing: "chat"
+    thing: "encyclopédie"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "fr",
-    thing: "chien"
+    thing: "destination"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "fr",
-    thing: "pomme"
+    thing: "péninsules"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "fr",
-    thing: "mine"
+    thing: "passagers"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
     lang: "fr",
-    thing: "de"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "fr",
-    thing: "votre"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "fr",
-    thing: "amélioration"
-  }).save(function(err, n) {});
-new Thing({
-    thingType: "1",
-    lang: "fr",
-    thing: "de"
+    thing: "automobile"
   }).save(function(err, n) {});
 new Thing({
     thingType: "1",
@@ -212,32 +187,82 @@ new Thing({
 new Thing({
     thingType: "1",
     lang: "fr",
-    thing: "aérienne"
+    thing: "amélioration"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "fr",
+    thing: "aérien"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "fr",
+    thing: "population"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "1",
+    lang: "fr",
+    thing: "racketteur"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "en",
-    thing: "An air well or aerial well is a structure or device that collects water by promoting the condensation of moisture from air"
+    thing: "This is a book"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "en",
-    thing: "Because this measurement was used to calibrate other distances in astronomy, the result effectively doubled the estimated size of the universe"
+    thing: "That is not a pencil"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "en",
-    thing: "If you show people the problems and you show people the solutions they will be moved to act"
+    thing: "One is strong"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "en",
-    thing: "At the 2006 census, its existence was noted, but its population was not reported"
+    thing: " The other is weak"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "en",
-    thing: "It was listed for its potential to yield information in the future, and includes one contributing site with approximately 600 items"
+    thing: "What he said is something"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: "All you have to do is add the letters"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: "That is exactly what we want to learn"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: "It is seven"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: " It must be seven"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: "I’m very fond to you as a friend"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: "I’m glad to hear your good news"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "en",
+    thing: "Today we are going to hear report"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
@@ -247,27 +272,42 @@ new Thing({
 new Thing({
     thingType: "2",
     lang: "es",
-    thing: "Un pozo de aire o bien aérea es una estructura o un dispositivo que recoge el agua mediante la promoción de la condensación de la humedad de air"
+    thing: "Cómo te llamas"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "es",
-    thing: "Because se utiliza esta medida para calibrar otro Distancias en astronomía, el resultado efectivamente duplicó el El tamaño estimado del universo"
+    thing: "Cuántos años tiene usted?"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "es",
-    thing: "Si muestra la gente Los problemas y mostrarle a la gente las soluciones van a ser movido a act"
+    thing: "Hablas inglés"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "es",
-    thing: "At el censo de 2006, se tomó nota de su existencia pero su población no era reported"
+    thing: "Entiende usted"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "es",
-    thing: "It fue catalogado por su El potencial para producir información en el futuro, e incluye un sitio que contribuye con aproximadamente 600 artículos"
+    thing: "Puede ayudarme"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "es",
+    thing: "Tengo que ir ahora"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "es",
+    thing: "Te amo"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "es",
+    thing: "Te toca a ti"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
@@ -277,22 +317,67 @@ new Thing({
 new Thing({
     thingType: "2",
     lang: "zh",
-    thing: "空气好或空中井是一个结构或设备收集的水通过促进水分的凝结从空气中"
+    thing: "你吃饭了吗？"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "zh",
-    thing: "由于这种测量用于校准其它在天文学的距离，结果有效地增加了一倍的估计宇宙的大小"
+    thing: "我跟你讲。"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "zh",
-    thing: "如果你向人们展示了的问题，你向人们展示的解决方案，他们将感动行事"
+    thing: "请问一下。"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "zh",
-    thing: "在2006年的人口普查，它的存在注意到，但没有报告其人口，它没有被列为其势，以产生在未来的信息，并且包括一个网站贡献约600项"
+    thing: "我敬你一杯。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "我会考虑一下的。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "你去忙你的吧。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "我不是说你。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "你吓死我了。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "你辛苦了。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "可不是吗？"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "哪儿跟哪儿？"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "看情况。"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "zh",
+    thing: "爱谁谁！"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
@@ -302,27 +387,47 @@ new Thing({
 new Thing({
     thingType: "2",
     lang: "fr",
-    thing: "Un puits d'air ou puits aérien est une structure ou un dispositif qui recueille l'eau en favorisant la condensation de l'humidité air"
+    thing: "Ça ne me plaît pas"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "fr",
-    thing: "Because de cette mesure a été utilisée pour calibrer d'autres Distances en astronomie, le résultat effectivement doublé la taille estimée de la universe"
+    thing: "Je vous en prie"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "fr",
-    thing: "If vous montrer aux gens l'Les problèmes et de vous montrer aux gens les solutions qu'ils seront déplacé à act"
+    thing: "Comment vous appelez-vous"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "fr",
-    thing: "At le recensement de 2006, son existence a été noté, mais sa population n'a pas été reported"
+    thing: "Tu parles anglais?"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",
     lang: "fr",
-    thing: "It a été classée pour son potentiel de fournir des informations à l'avenir, et comprend un site contributif d'environ 600 articles"
+    thing: "Je ne parle pas espagnol"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "fr",
+    thing: "Pouvez-vous m'aider?"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "fr",
+    thing: "Tu m'as tellement manqué"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "fr",
+    thing: "Allez tout droit! Puis prennez à gauche"
+  }).save(function(err, n) {});
+new Thing({
+    thingType: "2",
+    lang: "fr",
+    thing: "Un moment s'il vous plaît"
   }).save(function(err, n) {});
 new Thing({
     thingType: "2",

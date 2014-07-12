@@ -2,56 +2,56 @@
 #coding: utf8 
 
 en = {
-  'word_col': "cat dog apple mine your modification improvement aerial",
-  'sentence_col': ("An air well or aerial well is a structure or device that "
-                 "collects water by promoting the condensation of moisture "
-                 "from air.Because this measurement was used to calibrate other"
-                 " distances in astronomy, the result effectively doubled the "
-                 "estimated size of the universe.If you show people the "
-                 "problems and you show people the solutions they will be "
-                 "moved to act.At the 2006 census, its existence was noted, "
-                 "but its population was not reported.It was listed for its "
-                 "potential to yield information in the future, and includes "
-                 "one contributing site with approximately 600 items.")
+  'word_col': "encyclopedia destination peninsulas passenger automobile  modification improvement aerial population racketeer",
+  'sentence_col': ("This is a book."
+                   "That is not a pencil."
+                   "One is strong. The other is weak."
+                   "What he said is something."
+                   "All you have to do is add the letters."
+                   "That is exactly what we want to learn."
+                   "It is seven. It must be seven."
+                   "I’m very fond to you as a friend."
+                   "I’m glad to hear your good news."
+                   "Today we are going to hear report.")
 }
 es = {
-  'word_col': "gato mío manzana perro su mejora modificación perro aerialcat manzana mina su mejora modificación aérea",
-  'sentence_col': ("Un pozo de aire o bien aérea es una estructura o un dispositivo que " 
-                 "recoge el agua mediante la promoción de la condensación de la humedad " 
-                 "de air.Because se utiliza esta medida para calibrar otro "
-                 "Distancias en astronomía, el resultado efectivamente duplicó el "
-                 "El tamaño estimado del universo.Si muestra la gente "
-                 "Los problemas y mostrarle a la gente las soluciones van a ser "
-                 "movido a act.At el censo de 2006, se tomó nota de su existencia "
-                 "pero su población no era reported.It fue catalogado por su "
-                 "El potencial para producir información en el futuro, e incluye "
-                 "un sitio que contribuye con aproximadamente 600 artículos.")
+  'word_col': "enciclopedia destino penínsulas pasajeros automóvil modificación mejora Antena población mafioso",
+  'sentence_col': ("Cómo te llamas."
+                   "Cuántos años tiene usted?."
+                   "Hablas inglés."
+                   "Entiende usted."
+                   "Puede ayudarme."
+                   "Tengo que ir ahora."
+                   "Te amo."
+                   "Te toca a ti.")
 }
 zh = {
-  'word_col': "猫 狗 苹果 矿 井您 的 修改 完善 航 空",
-  'sentence_col': ("空气好或空中井是一个结构或设备"
-                 "收集的水通过促进水分的凝结"
-                 "从空气中.由于这种测量用于校准其它"
-                 "在天文学的距离，结果有效地增加了一倍的"
-                 "估计宇宙的大小.如果你向人们展示了"
-                 "的问题，你向人们展示的解决方案，他们将"
-                 "感动行事.在2006年的人口普查，它的存在注意到，"
-                 "但没有报告其人口，它没有被列为其"
-                 "势，以产生在未来的信息，并且包括"
-                 "一个网站贡献约600项.")
+  'word_col': "百科全书 目的地 半岛 客运 汽车 改装 改进 航空 人口 敲诈勒索",
+  'sentence_col': ("你吃饭了吗？."
+                   "我跟你讲。."
+                   "请问一下。."
+                   "我敬你一杯。."
+                   "我会考虑一下的。."
+                   "你去忙你的吧。."
+                   "我不是说你。."
+                   "你吓死我了。."
+                   "你辛苦了。."
+                   "可不是吗？."
+                   "哪儿跟哪儿？."
+                   "看情况。."
+                   "爱谁谁！.")
 }
 fr = {
-  'word_col': "chat chien pomme mine de votre amélioration de modification aérienne",
-  'sentence_col': ("Un puits d'air ou puits aérien est une structure ou un dispositif qui "
-                   "recueille l'eau en favorisant la condensation de l'humidité "
-                   "air.Because de cette mesure a été utilisée pour calibrer d'autres "
-                   "Distances en astronomie, le résultat effectivement doublé la "
-                   "taille estimée de la universe.If vous montrer aux gens l'"
-                   "Les problèmes et de vous montrer aux gens les solutions qu'ils seront "
-                   "déplacé à act.At le recensement de 2006, son existence a été noté, "
-                   "mais sa population n'a pas été reported.It a été classée pour son "
-                   "potentiel de fournir des informations à l'avenir, et comprend "
-                   "un site contributif d'environ 600 articles.")
+  'word_col': "encyclopédie destination péninsules passagers automobile modification amélioration aérien population racketteur",
+  'sentence_col': ("Ça ne me plaît pas."
+                   "Je vous en prie."
+                   "Comment vous appelez-vous."
+                   "Tu parles anglais?."
+                   "Je ne parle pas espagnol."
+                   "Pouvez-vous m'aider?."
+                   "Tu m'as tellement manqué."
+                   "Allez tout droit! Puis prennez à gauche."
+                   "Un moment s'il vous plaît.")
 }
 
 template = """new Thing({
