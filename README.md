@@ -55,3 +55,13 @@ Response:
 
     Score("abc", "abcd")
     >> 2
+
+## Icons
+
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel="stylesheet")
+
+    fa-microphone - click to start listening, listen again
+
+    fa-repeat - re-listen the text
+
+    fa-arrow-right - skip/next thing
