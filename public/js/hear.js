@@ -3,6 +3,7 @@ var Hear = function(lang, callback, stopcb) {
     console.log("speech recognition not supported");
   } else {
     var recognition = new webkitSpeechRecognition();
+    recognition.lang = lang;
     stopcb(recognition);
     var interim_transcript = '';
     var final_transcript = '';
