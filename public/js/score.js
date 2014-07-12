@@ -21,7 +21,8 @@ var Score = function(actualText, userText, thingType) {
       userThingCount = userText.split('.').length;
       break;
   }
-  var score = 10 - Math.pow(distance / actualThingCount, 1.5);
+
+  var score = 10 - (distance / actualThingCount * 10);
 
   return score < 0 ? 0 : score;
 }
