@@ -5,6 +5,7 @@ var Hear = function(lang, callback) {
     var recognition = new webkitSpeechRecognition();
     var interim_transcript = '';
     var final_transcript = '';
+    recognition.start();
 
     recognition.continuous = true;
     recognition.interimResults = true;
@@ -45,6 +46,6 @@ var Hear = function(lang, callback) {
         window.getSelection().removeAllRanges();
       }
     };
-    
+
   }
 }
