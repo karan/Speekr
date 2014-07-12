@@ -130,7 +130,7 @@ $(function () {
 
     // Text animation
     $game.find('.gameArea .text').delay(animationDelay).css({
-      'opacity': 0,
+      opacity: 0,
       bottom: '100px'
     }).animate({
       bottom: '0px',
@@ -166,13 +166,14 @@ $(function () {
       $gameText.css({
         fontSize: fontSize + 'px'
       });
-      $gameText.text(round.thing);
+      $gameText.html('').text(round.thing);
       $gameText.fadeIn();
 
       setTimeout(function () {
         // Play thing
+        round.speaking = true;
         Speak(round.thing, language, function () {
-          
+          round.speaking = false;
         });
       }, 1000);
     });
@@ -190,8 +191,19 @@ $(function () {
       userData = user;
       updateScoreBar();
     });
-    var redWordIndices = Differ(round.thing, round.userThing, round.thingType);
-    console.log(redWordIndices);
+    // create DOM for red words
+    var wordsDiff = Differ(round.thing, round.userThing, round.thingType, language);
+    var $temp = $('<div>');
+    for (var i in wordsDiff) {
+      var wordDiff = wordsDiff[i];
+      var word = wordDiff.word;
+      var $word = $('<span>').addClass(wordDiff.good ? 'good' : 'bad').text(word);
+      $temp.append($word);
+      if (i !== wordsDiff.length) {
+        $temp.append(' ');
+      }
+      $gameText.html($temp.html());
+    }
   }
 
   // Sets the big button to a specific type
@@ -246,6 +258,9 @@ $(function () {
 
   $('.bigbutton').click(function () {
     if (!inPageTransition) {
+      if (round.speaking) {
+        return;
+      }
       if (round.end) {
         // go to next round
         // animate

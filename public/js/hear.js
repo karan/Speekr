@@ -9,7 +9,7 @@ var Hear = function(lang, callback, stopcb) {
     var final_transcript = '';
     recognition.start();
 
-    recognition.continuous = true;
+    recognition.continuous = false;
     recognition.interimResults = true;
 
     recognition.onstart = function() {  };
