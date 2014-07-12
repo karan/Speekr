@@ -1,48 +1,6 @@
-// RESET CSS
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button
-  margin 0
-  padding 0
-  border 0
-  font-size 100%
-  font inherit
-  vertical-align baseline
+@import 'reset'
 
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section
-  display block
-
-body
-  line-height 1
-
-ol, ul
-  list-style none
-
-blockquote, q
-  quotes none
-
-table
-  border-collapse collapse
-  border-spacing 0
-
-button
-  background-color transparent
-
-*
-  box-sizing border-box
-
-// END RESET CSS
+bgColor = #d24944
 
 shadowHeight = 3px
 shadowDarkenAmount = 30%
@@ -66,7 +24,6 @@ html, body, .page, .content
   height 100%
 
 body
-  background-color #d24944
   font-family RobotoDraft
   font-weight 300
   color white
@@ -81,38 +38,50 @@ headerHeight = 50px
   height 100%
 
 .content
-  position: relative
+  position: absolute
+  width 100%
 
 // Login
 .page.login
-  .modal
-    modalHeight = 300px
-    margin-top 10%;
-    margin-left auto
-    margin-right auto
-    height modalHeight
-    text-align center
+  .content
+    background-color bgColor
+    .modal
+      modalHeight = 300px
+      margin-top 10%;
+      margin-left auto
+      margin-right auto
+      height modalHeight
+      text-align center
 
-    .logo
-      margin 0 auto
-      position relative
-    .title
-      font-size 60px
-      margin-bottom 40px
-    .subtitle
-      font-size 30px
-      margin-bottom 30px
-    .signinButton
-      padding 20px
-      border-radius 10px
-      button(#f3d392)
+      .logo
+        margin 0 auto
+        position relative
+      .title
+        font-size 60px
+        margin-bottom 40px
+      .subtitle
+        font-size 30px
+        margin-bottom 30px
+      .signinButton
+        padding 20px
+        border-radius 10px
+        button(#f3d392)
 
 // Home
 .page.home
+  z-index 200
+  .curtain
+    position: absolute
+    width: 50%
+    height 100%
+    overflow: hidden
+    .content
+      width: 200%
   .content
+    background-color bgColor
     .languages
       margin 0 auto
-      margin-top headerHeight
+      padding-top headerHeight
       max-width 400px
       .languageArea
         width 50%
@@ -145,6 +114,14 @@ headerHeight = 50px
               button(rgb(3, 169, 244))
 
 // Game
+.page.game
+  z-index 100
+  &:not(.transitionsDisabled)
+    transition transform 1s
+  .content
+    background-color blue
+    .speak
+      button(rgb(red))
 
 // Init CSS
 
