@@ -48,26 +48,28 @@ template = """new Thing({
   }).save(function(err, n) {});"""
 
 
-# words = en['word_col'].split(" ")
-# for word in words:
-#   print template.replace("{{type}}", "word").replace("{{lang}}", "en").replace("{{thing}}", word)
+print "var Thing = require('mongoose').model('Thing');"
 
-# words = es['word_col'].split(" ")
-# for word in words:
-#   print template.replace("{{type}}", "word").replace("{{lang}}", "es").replace("{{thing}}", word)
+words = en['word_col'].split(" ")
+for word in words:
+  print template.replace("{{type}}", "1").replace("{{lang}}", "en").replace("{{thing}}", word)
 
-# words = zh['word_col'].split(" ")
-# for word in words:
-#   print template.replace("{{type}}", "word").replace("{{lang}}", "zh").replace("{{thing}}", word)
+words = es['word_col'].split(" ")
+for word in words:
+  print template.replace("{{type}}", "1").replace("{{lang}}", "es").replace("{{thing}}", word)
+
+words = zh['word_col'].split(" ")
+for word in words:
+  print template.replace("{{type}}", "1").replace("{{lang}}", "zh").replace("{{thing}}", word)
 
 words = en['sentence_col'].split(".")
 for word in words:
-  print template.replace("{{type}}", "sentence").replace("{{lang}}", "en").replace("{{thing}}", word)
+  print template.replace("{{type}}", "2").replace("{{lang}}", "en").replace("{{thing}}", word)
 
 words = es['sentence_col'].split(".")
 for word in words:
-  print template.replace("{{type}}", "sentence").replace("{{lang}}", "es").replace("{{thing}}", word)
+  print template.replace("{{type}}", "2").replace("{{lang}}", "es").replace("{{thing}}", word)
 
 words = zh['sentence_col'].split(".")
 for word in words:
-  print template.replace("{{type}}", "sentence").replace("{{lang}}", "zh").replace("{{thing}}", word)
+  print template.replace("{{type}}", "2").replace("{{lang}}", "zh").replace("{{thing}}", word)

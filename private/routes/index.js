@@ -1,3 +1,5 @@
+var User = require('./../models/user');
+var Thing = require('./../models/thing');
 
 exports.index = function (req, res){
   res.render('index');
@@ -11,3 +13,13 @@ exports.authSuccess = function(req, res) {
   // res.redirect('/play');
   res.send('Logged in fine');
 };
+
+// Main functions
+
+// return next thing for the passed language
+exports.nextThing = function(req, res) {
+  var lang = req.query.lang;
+  Thing.find({'lang': lang, 'thingType': req.user.levels[lang].level}, function(err, docs) {
+    res.send(200, docs[Math.floor(Math.random()*docs.length)]);
+  });
+}
