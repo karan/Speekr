@@ -47,3 +47,7 @@ Response:
       __v: 0,
       created_at: "2014-07-12T06:21:07.468Z"
     }
+
+## Distance between strings:
+
+    new Levenshtein('空气好或空中井是', '空气好空中金师').distance
