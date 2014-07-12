@@ -1,6 +1,6 @@
 
 exports.index = function (req, res){
-  res.send('Hello');
+  res.render('index');
 };
 
 exports.authError = function(req, res) {
@@ -10,5 +10,5 @@ exports.authError = function(req, res) {
 
 exports.authSuccess = function(req, res) {
   // res.redirect('/play');
-  res.send('Logged in fine')
+  res.send('Logged in fine');
 };
