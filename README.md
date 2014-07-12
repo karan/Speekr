@@ -53,7 +53,7 @@ Response:
     script(src="js/levenshtein.js")
     script(src="js/score.js")
 
-    Score("abc", "abcd")
+    Score("abc", "abcd", "2")  // 1 = word, 2 = sentence, 3 = para
     >> 2
 
 ## Icons
