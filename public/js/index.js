@@ -15,6 +15,8 @@ $(function () {
   var $home = $('.page.home .content');
   var $game = $('.page.game .content');
 
+  var $gameText = $game.find('.gameArea .text');
+
   function exitLogin () {
     $login.animate({
       top: '-100%'
@@ -95,10 +97,25 @@ $(function () {
     }, 100);
     $game.addClass(language);
 
-    $game.find('.bigbutton').css('opacity', 0).delay(400).css({
+    var animationDelay = 400;
+
+    // Button animation
+    $game.find('.bigbutton').css('opacity', 0).delay(animationDelay).css({
       top: '100px'
     }).animate({
       top: '0px',
+      opacity: 1,
+    }, {
+      duration: LONG_ANIMATION_DURATION,
+      ease: ANIMATION_EASING
+    });
+
+    // Text animation
+    $game.find('.gameArea .text').delay(animationDelay).css({
+      'opacity': 0,
+      bottom: '100px'
+    }).animate({
+      bottom: '0px',
       opacity: 1,
     }, {
       duration: LONG_ANIMATION_DURATION,
@@ -116,11 +133,21 @@ $(function () {
     // $.getJSON('/next_thing', function (data) {
       // temp
       data = {
-        thing: 'what are you doing'
+        thing: 'what are you doing',
+        thingType: '2'
       };
 
+      round.thing = data.thing;
+      round.thingType = data.thingType;
+
+      // Set the font size relative to the text size
+      var fontSize = 140/Math.sqrt(round.thing.length);
+      $gameText.css({
+        fontSize: fontSize + 'px'
+      });
+      $gameText.text(round.thing);
+
       setTimeout(function () {
-        round.thing = data.thing;
         // Play thing
         Speak(round.thing, language, function () {
           
@@ -165,7 +192,10 @@ $(function () {
       $('.bigbutton').addClass('active');
       Hear(language, function (userThing) {
         $('.bigbutton').removeClass('active');
-        var score = Score(round.thing, userThing);
+        console.log(round.thing);
+        console.log(userThing);
+        console.log(round.thingType);
+        var score = Score(round.thing, userThing, round.thingType);
         endRound(score);
       });
     }
