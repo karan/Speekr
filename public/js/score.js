@@ -3,12 +3,10 @@
 var Score = function(actualText, userText, thingType) {
   var l = new Levenshtein(actualText, userText);
   var distance = l.distance;
-  if (distance == 0) {
-    return Math.pow(actualText.length, 2);
-  }
 
   var actualThingCount = 0;
   var userThingCount = 0;
+
   switch(thingType) {
     case "1": 
       actualThingCount = actualText.length;
@@ -24,6 +22,10 @@ var Score = function(actualText, userText, thingType) {
       break;
   }
   if (distance >= actualThingCount) return 0;
+
+  if (distance == 0) {
+    return Math.pow(actualThingCount, 2);
+  }
 
   return distance + Math.pow(actualThingCount - userThingCount, 2);
 }
