@@ -131,25 +131,43 @@ headerHeight = 50px
       background-color frColor
     &.zh
       background-color zhColor
-    .speak
-      width 50px
-      height 50px
-      border-radius 50%
-      background-color white
-      border 1px solid #999
-      transition background-color transitionSpeed
-      box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.26)
-      cursor pointer
-      outline none
-      &:hover
-        background-color #eee
-      .icon
-        opacity 0.3
-        background url("/img/mic.png") no-repeat center
-        background-size 20px 20px
-        margin 0 auto
-        width 20px
-        height 20px
+    .gameArea
+      width 400px
+      height 100%
+      margin 0 auto
+      padding-top headerHeight
+      .topHalf
+        text-align: center
+        font-size 20px
+        position: relative
+        height 50%
+        .fromBottom
+          position: absolute
+          padding-bottom: 40px
+          bottom 0
+      .bottomHalf
+        text-align: center
+        height 50%
+        buttonSize = 100px
+        .speak
+          width buttonSize
+          height buttonSize
+          border-radius 50%
+          background-color white
+          border 1px solid #999
+          transition background-color transitionSpeed
+          box-shadow 0 2px 5px 0 rgba(0, 0, 0, 0.26)
+          cursor pointer
+          outline none
+          &:hover
+            background-color #eee
+          .icon
+            opacity 0.3
+            background url("/img/mic.png") no-repeat center
+            background-size buttonSize*0.4 buttonSize*0.4
+            margin 0 auto
+            width buttonSize*0.4
+            height buttonSize*0.4
 
 // Init CSS
 header
