@@ -45,6 +45,11 @@ header
   z-index 400
   height headerHeight
   width 100%
+  transition color transitionSpeed
+  &.es
+    color darkTextColor
+  &.fr
+    color darkTextColor
   .logo
     margin-top 5px
     opacity 0.4
@@ -174,7 +179,7 @@ header
           width 100%
           position absolute
           padding-bottom 40px
-          line-height 50px
+          line-height 200%
           bottom 0
           .text
             position: relative

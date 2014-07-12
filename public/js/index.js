@@ -118,6 +118,7 @@ $(function () {
       $game.css('transform', 'perspective(500px) translateZ(0px)');
     }, 100);
     $game.addClass(language);
+    $('header').addClass(language);
 
     var animationDelay = 400;
 
