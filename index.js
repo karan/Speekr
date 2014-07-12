@@ -34,7 +34,6 @@ app.configure(function(){
     secret: 'YOLO',
     store: new RedisStore({ client: redis })
   }));
-  app.use(express.session());
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
