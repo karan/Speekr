@@ -11,10 +11,12 @@ $(function () {
   var $loginPage = $('.page.login');
   var $homePage = $('.page.home');
   var $gamePage = $('.page.game');
+  var $leaderboardPage = $('.page.leaderpage');
   
   var $login = $('.page.login .content');
   var $home = $('.page.home .content');
   var $game = $('.page.game .content');
+  var $leaderboard = $('.page.leaderpage .content')
 
   var $gameText = $game.find('.gameArea .text');
 
@@ -38,6 +40,21 @@ $(function () {
       duration: ANIMATION_DURATION,
       ease: ANIMATION_EASING,
       complete: function () {
+        inPageTransition = false;
+      }
+    });
+    $('header').css('visibility', 'visible');
+  }
+  function enterLeaderboard () {
+    console.log("enter");
+    $leaderboardPage.show();
+    $leaderboard.css('top', '100%').animate({
+      top: '0%'
+    }, {
+      duration: ANIMATION_DURATION,
+      ease: ANIMATION_EASING,
+      complete: function () {
+        console.log("complete");
         inPageTransition = false;
       }
     });
@@ -206,6 +223,17 @@ $(function () {
     }
   });
 
+  function populateLeaderboard() {
+    $.ajax({
+      url: '/leaderboard',
+      success: function(users) {
+        for (var i = 0; i < users.length; i++) {
+          $leaderboard.find('ul').append(users[i]);
+        }
+      }
+    });
+  }
+
   // Event listeners
 
   $('.signinButton').click(function() {
@@ -243,6 +271,15 @@ $(function () {
           });
         }
       }
+    }
+  });
+
+  $('.leaderboard').click(function() {
+    if (!inPageTransition) {
+      inPageTransition = true;
+      exitLogin();
+      enterLeaderboard();
+      populateLeaderboard();
     }
   });
 
