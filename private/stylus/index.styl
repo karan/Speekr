@@ -24,6 +24,11 @@ button(color)
 
   box-shadow 0px shadowHeight*2 0 0 darken(color, shadowDarkenAmount)
 
+.left
+  float: left
+.right
+  float: right
+
 html, body, .page, .content
   height 100%
 
@@ -33,6 +38,27 @@ body
   color white
 
 headerHeight = 50px
+header
+  padding 10px 10px 0 10px
+  position: absolute
+  z-index: 400
+  height headerHeight
+  width: 100%
+  background-color blue
+  .logo
+    margin-top 5px
+    opacity 0.4
+    padding: 0 0 0 10px
+    width 100px
+  .name
+    margin-top 5px
+    font-size 20px
+    float: left
+    padding-right: 20px
+  .profilePhoto
+    float: right
+    border-radius 50%
+    width: headerHeight*0.6
 
 .page
   position: absolute
@@ -150,7 +176,7 @@ headerHeight = 50px
         text-align: center
         height 50%
         buttonSize = 100px
-        .speak
+        .bigbutton
           position: relative
           width buttonSize
           height buttonSize
@@ -172,7 +198,7 @@ headerHeight = 50px
             height buttonSize*0.4
 
 // Init CSS
-header
-  display none
+// header
+  // visibility hidden
 .page.home, .page.game
   display none

@@ -35,6 +35,7 @@ $(function () {
         inPageTransition = false;
       }
     });
+    $('header').css('visibility', 'visible');
   }
 
   function exitHome () {
@@ -91,7 +92,9 @@ $(function () {
     }, 100);
     $game.addClass(language);
 
-    $game.find('.speak').css('opacity', 0).delay(400).css({
+    $()
+
+    $game.find('.bigbutton').css('opacity', 0).delay(400).css({
       top: '100px'
     }).animate({
       top: '0px',
