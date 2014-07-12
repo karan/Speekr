@@ -1,7 +1,6 @@
 var express = require('express'),
     http = require('http'),
     routes = require('./private/routes'),
-    // user = require('./private/routes/user'),
     path = require('path'),
     db = require('./private/db/connect'),
     passport = require('passport'),
@@ -45,8 +44,6 @@ app.configure(function(){
 // Routes
 //
 
-// require('./save_gen');
-
 // GET
 app.get('/', routes.index);
 app.get('/auth/linkedin', passport.authenticate("linkedin",
@@ -55,6 +52,8 @@ app.get('/auth/linkedin/callback',
   passport.authenticate('linkedin', { failureRedirect: '/auth/error' }), 
   routes.authSuccess);
 app.get('/auth/error', routes.authError);
+
+app.get('/next_thing', routes.nextThing);
 
 // POST
 

@@ -60,6 +60,11 @@ module.exports = function (passport) {
           name: profile.displayName,
           photo: profile._json.pictureUrl,
           username: profile.emails[0].value.split('@')[0],
+          levels: {
+            en: { scores: 0, level: 1 },
+            es: { scores: 0, level: 1 },
+            zh: { scores: 0, level: 1 }
+          }
         }).save(function(err, newUser) {
           if (err) return done(err);
           return done(null, newUser);
