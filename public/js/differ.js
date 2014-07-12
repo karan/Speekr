@@ -4,14 +4,14 @@ var Differ = function(actualText, userText, thingType, lang) {
 
   if (thingType == "1" && lang !== 'zh') {
     // for words, they just have to be equal
-    if (actualText.toLowerCase() !== userText.toLowerCase()) {
-      return [0];
-    }
-    return [];
+    return [{
+      word: actualText,
+      good: actualText.toLowerCase() === userText.toLowerCase()
+    }];
   }
 
   var actualWordArray;
-  var userWordArray
+  var userWordArray;
   if (lang === 'zh') {
     actualWordArray = actualText.trim().split('');
     userWordArray = userText.trim().split('');
@@ -44,7 +44,14 @@ var Differ = function(actualText, userText, thingType, lang) {
     redIndexes.push(actualIndex);
   }
 
-  console.log(redIndexes);
+  var wordArray = [];
+  for (var i = 0; i < actualWordArray.length; ++i) {
+    var actualWord = actualWordArray[i];
+    wordArray.push({
+      word: actualWord,
+      good: redIndexes.indexOf(i) === -1
+    });
+  }
 
-  return redIndexes;
-}
+  return wordArray;
+};
