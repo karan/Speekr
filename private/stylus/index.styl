@@ -38,6 +38,12 @@ table
 
 // END RESET CSS
 
+html, body, .page, .content
+  height 100%
+
+.content
+  position: relative
+
 body
   background-color #d24944
   font-family RobotoDraft
@@ -46,7 +52,7 @@ body
 
 // Login
 
-.content.login
+.page.login
   .modal
     modalWidth = 400px
     modalHeight = 300px
@@ -76,10 +82,8 @@ body
 // Game
 
 // Init CSS
+
 header
   display none
-.content
-  & .home
-    display none
-  & .game
-    display none
+.page.home, .page.game
+  display none
