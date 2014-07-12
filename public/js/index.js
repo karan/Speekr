@@ -246,11 +246,31 @@ $(function () {
     $.ajax({
       url: '/leaderboard',
       success: function(users) {
-        var $ul = $leaderboard.find('ul').html('');
-        console.log($ul);
+        var $ul = $leaderboard.find('.leaders').html('');
+        // First sort the leaders
+        users.sort(function(a, b) {
+          var aSum = a.levels.en.scores + a.levels.es.scores + a.levels.fr.scores + a.levels.zh.scores;
+          var bSum = b.levels.en.scores + b.levels.es.scores + b.levels.fr.scores + b.levels.zh.scores;
+          return bSum - aSum;
+        });
+        var maxScore = users[0].levels.en.scores + users[0].levels.es.scores + users[0].levels.fr.scores + users[0].levels.zh.scores;
+        // Then show the leaders
         for (var i = 0; i < users.length; i++) {
           var user = users[i];
-          var $li = $('<li>').html(user.name);
+          var en = 100 * user.levels.en.scores / maxScore;
+          var es = 100 * user.levels.es.scores / maxScore;
+          var fr = 100 * user.levels.fr.scores / maxScore;
+          var zh = 100 * user.levels.zh.scores / maxScore;
+          var $li = $('<li>');
+          var $bg = $('<div>').addClass('bg');
+          var $en = $('<div>').addClass('en').css('width', en + '%');
+          var $es = $('<div>').addClass('es').css('width', es + '%');
+          var $fr = $('<div>').addClass('fr').css('width', fr + '%');
+          var $zh = $('<div>').addClass('zh').css('width', zh + '%');
+          $bg.append($en, $es, $fr, $zh);
+          $li.append($bg);
+          var $person = $('<div>').addClass('user').html(user.name);
+          $li.append($person);
           $ul.append($li);
         }
       }
