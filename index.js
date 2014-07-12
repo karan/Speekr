@@ -53,7 +53,7 @@ app.get('/auth/linkedin/callback',
   routes.authSuccess);
 app.get('/auth/error', routes.authError);
 
-app.get('/next_thing', routes.nextThing);
+app.get('/next_thing', auth.requiresLogin, routes.nextThing);
 
 // POST
 

@@ -6,12 +6,11 @@ exports.index = function (req, res){
 };
 
 exports.authError = function(req, res) {
-  res.render('index', { success: 'false' });
+  res.render('index');
 };
 
 exports.authSuccess = function(req, res) {
-  // res.redirect('/play');
-  res.send('Logged in fine');
+  res.render('index', {user: req.user});
 };
 
 // Main functions
