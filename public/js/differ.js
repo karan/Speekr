@@ -4,7 +4,7 @@ var Differ = function(actualText, userText, thingType, lang) {
 
   if (thingType == "1" && lang !== 'zh') {
     // for words, they just have to be equal
-    if (actualText.toLowerCase() === userText.toLowerCase()) {
+    if (actualText.toLowerCase() !== userText.toLowerCase()) {
       return [0];
     }
     return [];
@@ -19,9 +19,6 @@ var Differ = function(actualText, userText, thingType, lang) {
     actualWordArray = actualText.trim().split(' ');
     userWordArray = userText.trim().split(' ');
   }
-
-  console.log(actualWordArray);
-  console.log(userWordArray);
 
   var redIndexes = [];
 
