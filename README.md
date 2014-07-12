@@ -47,3 +47,11 @@ Response:
       __v: 0,
       created_at: "2014-07-12T06:21:07.468Z"
     }
+
+## Calculate score between strings:
+
+    script(src="js/levenshtein.js")
+    script(src="js/score.js")
+
+    Score("abc", "abcd")
+    >> 2
