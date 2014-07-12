@@ -45,20 +45,22 @@ button
 // END RESET CSS
 
 shadowHeight = 3px
-shadowDarkenAmount = 40%
-highlightAmount = 40%
+shadowDarkenAmount = 30%
+highlightAmount = 20%
 transitionSpeed = 300ms
+
 button(color)
-  transition background-color transitionSpeed, box-shadow transitionSpeed
+  cursor pointer
+  transition background-color transitionSpeed, box-shadow transitionSpeed, margin transitionSpeed
   background-color color
   box-shadow 0 shadowHeight 0 darken(color, shadowDarkenAmount)
   &:hover
     if color != 'transparent'
       background-color lighten(color, highlightAmount)
     box-shadow 0 shadowHeight 0 color
-    margin-top 0
+    margin-top shadowHeight
 
-  box-shadow 0px 6px 0 0 color
+  box-shadow 0px 6px 0 0 darken(color, shadowDarkenAmount)
 
 html, body, .page, .content
   height 100%
@@ -119,6 +121,7 @@ headerHeight = 50px
       .languageArea
         width 50%
         height 200px
+        overflow: hidden
         display: inline-block
         .languageButton
           text-align: center
@@ -126,9 +129,24 @@ headerHeight = 50px
           width 100%
           height 100%
           .languageBox
+            overflow: hidden
+            width 100%
             height 100%
             border-radius 10%
-            button(red)
+            padding 40px 30px
+            font-size 40px
+            color white
+            vertical-align bottom
+            &.es
+              color rgb(97, 97, 97)
+              button(rgb(29, 233, 182))
+            &.en
+              button(rgb(82, 100, 174))
+            &.fr
+              color rgb(97, 97, 97)
+              button(rgb(255, 235, 41))
+            &.zh
+              button(rgb(3, 169, 244))
 
 // Game
 
