@@ -162,7 +162,7 @@ $(function () {
       round.thingType = data.thingType;
 
       // Set the font size relative to the text size
-      var fontSize = 140/Math.sqrt(round.thing.length);
+      var fontSize = 140/Math.sqrt(round.thing.length * 2);
       $gameText.css({
         fontSize: fontSize + 'px'
       });
@@ -174,6 +174,7 @@ $(function () {
         round.speaking = true;
         Speak(round.thing, language, function () {
           round.speaking = false;
+          console.log(round);
         });
       }, 1000);
     });
