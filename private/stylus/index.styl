@@ -36,10 +36,29 @@ table
   border-collapse collapse
   border-spacing 0
 
+button
+  background-color transparent
+
 *
   box-sizing border-box
 
 // END RESET CSS
+
+shadowHeight = 3px
+shadowDarkenAmount = 40%
+highlightAmount = 40%
+transitionSpeed = 300ms
+button(color)
+  transition background-color transitionSpeed, box-shadow transitionSpeed
+  background-color color
+  box-shadow 0 shadowHeight 0 darken(color, shadowDarkenAmount)
+  &:hover
+    if color != 'transparent'
+      background-color lighten(color, highlightAmount)
+    box-shadow 0 shadowHeight 0 color
+    margin-top 0
+
+  box-shadow 0px 6px 0 0 color
 
 html, body, .page, .content
   height 100%
@@ -49,6 +68,8 @@ body
   font-family RobotoDraft
   font-weight 300
   color white
+
+headerHeight = 50px
 
 .page
   position: absolute
@@ -77,32 +98,37 @@ body
 
     .logo
       margin-bottom 50px
-
     .title
       font-size 60px
       margin-bottom 40px
-
     .subtitle
       font-size 30px
       margin-bottom 30px
+    .signinButton
+      padding 20px
+      border-radius 10px
+      button(#f3d392)
 
 // Home
 .page.home
   .content
     .languages
       margin 0 auto
+      margin-top headerHeight
       max-width 400px
       .languageArea
         width 50%
+        height 200px
         display: inline-block
         .languageButton
           text-align: center
-          padding 10%
+          padding 20%
           width 100%
           height 100%
           .languageBox
-            background-color blue
-
+            height 100%
+            border-radius 10%
+            button(red)
 
 // Game
 
