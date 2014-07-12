@@ -1,7 +1,7 @@
 // calculate a score based on actual text and text that user spoke
 
 var Score = function(actualText, userText, thingType) {
-  var l = new Levenshtein(actualText, userText);
+  var l = new Levenshtein(actualText.toLowerCase(), userText.toLowerCase());
   var distance = l.distance;
 
   var actualThingCount = 0;
@@ -21,11 +21,7 @@ var Score = function(actualText, userText, thingType) {
       userThingCount = userText.split('.').length;
       break;
   }
-  if (distance >= actualThingCount) return 0;
+  var score = 10 - Math.pow(distance / actualThingCount, 1.5);
 
-  if (distance == 0) {
-    return Math.pow(actualThingCount, 2);
-  }
-
-  return distance + Math.pow(actualThingCount - userThingCount, 2);
+  return score < 0 ? 0 : score;
 }
