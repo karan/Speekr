@@ -4,13 +4,13 @@ var Speak = (function(text, lang, endcb) {
   msg.onend = endcb;
 
   if (lang == 'zh') {
-    msg.voice = 'zh-CN';
+    msg.lang = 'zh-CN';
   } else if (lang == 'es') {
-    msg.voice = 'es-ES';
+    msg.lang = 'es-ES';
   } else if (lang == 'fr') {
-    msg.voice = 'fr-FR';
+    msg.lang = 'fr-FR';
   } else {
-    msg.voice = 'en-US';
+    msg.lang = 'en-US';
   }
 
   speechSynthesis.speak(msg);

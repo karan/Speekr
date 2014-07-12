@@ -154,16 +154,15 @@ $(function () {
 
       setTimeout(function () {
         // Play thing
-        console.log(language);
         Speak(round.thing, language, function () {
           
         });
-      }, 3000);
+      }, 1000);
     });
   }
 
   function endRound (score) {
-    // save score and move on to next word
+    // save score, show results and let user move on
     bigButton('right');
     var data = {
       lang: language,
@@ -174,6 +173,8 @@ $(function () {
       userData = user;
       updateScoreBar();
     });
+    var redWordIndices = Differ(round.thing, round.userThing, round.thingType);
+    console.log(redWordIndices);
   }
 
   // Sets the big button to a specific type
@@ -232,6 +233,9 @@ $(function () {
           Hear(language, function (userThing) {
             $('.bigbutton').removeClass('active');
             var score = Score(round.thing, userThing, round.thingType);
+            round.userThing = userThing;
+            console.log([round.thing, userThing, round.thingType]);
+            console.log(score);
             endRound(score);
             round.recognition = undefined;
           }, function (recognition) {
@@ -243,9 +247,9 @@ $(function () {
   });
 
   function updateScoreBar () {
-    var scorePercent = userData.levels[language].score % 100;
+    var scorePercent = userData.levels[language].scores % 100;
     $('.scoreBar').css({
-      width: scorePercent
+      width: scorePercent + '%'
     });
   }
 
