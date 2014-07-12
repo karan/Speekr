@@ -9,7 +9,7 @@ var watch = {
 };
 
 var src = {
-  styl: './private/stylus/style.styl'
+  styl: './private/stylus/index.styl'
 };
 
 var dest = {
