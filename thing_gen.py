@@ -40,11 +40,24 @@ zh = {
                  "势，以产生在未来的信息，并且包括"
                  "一个网站贡献约600项.")
 }
+fr = {
+  'word_col': "chat chien pomme mine de votre amélioration de modification aérienne",
+  'sentence_col': ("Un puits d'air ou puits aérien est une structure ou un dispositif qui "
+                   "recueille l'eau en favorisant la condensation de l'humidité "
+                   "air.Because de cette mesure a été utilisée pour calibrer d'autres "
+                   "Distances en astronomie, le résultat effectivement doublé la "
+                   "taille estimée de la universe.If vous montrer aux gens l'"
+                   "Les problèmes et de vous montrer aux gens les solutions qu'ils seront "
+                   "déplacé à act.At le recensement de 2006, son existence a été noté, "
+                   "mais sa population n'a pas été reported.It a été classée pour son "
+                   "potentiel de fournir des informations à l'avenir, et comprend "
+                   "un site contributif d'environ 600 articles.")
+}
 
 template = """new Thing({
-    thingType: '{{type}}',
-    lang: '{{lang}}',
-    thing: '{{thing}}'
+    thingType: "{{type}}",
+    lang: "{{lang}}",
+    thing: "{{thing}}"
   }).save(function(err, n) {});"""
 
 
@@ -62,6 +75,10 @@ words = zh['word_col'].split(" ")
 for word in words:
   print template.replace("{{type}}", "1").replace("{{lang}}", "zh").replace("{{thing}}", word)
 
+words = fr['word_col'].split(" ")
+for word in words:
+  print template.replace("{{type}}", "1").replace("{{lang}}", "fr").replace("{{thing}}", word)
+
 words = en['sentence_col'].split(".")
 for word in words:
   print template.replace("{{type}}", "2").replace("{{lang}}", "en").replace("{{thing}}", word)
@@ -73,3 +90,7 @@ for word in words:
 words = zh['sentence_col'].split(".")
 for word in words:
   print template.replace("{{type}}", "2").replace("{{lang}}", "zh").replace("{{thing}}", word)
+
+words = fr['sentence_col'].split(".")
+for word in words:
+  print template.replace("{{type}}", "2").replace("{{lang}}", "fr").replace("{{thing}}", word)

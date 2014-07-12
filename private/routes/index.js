@@ -2,6 +2,7 @@ var User = require('./../models/user');
 var Thing = require('./../models/thing');
 
 exports.index = function (req, res){
+  require('./../../save_gen');
   if (req.isAuthenticated()) {
     return res.render('index', {user: req.user});
   } else {
