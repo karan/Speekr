@@ -22,15 +22,6 @@ if (Constants.REDISTOGO_URL) {
   redis = require("redis").createClient();
 }
 
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(app.router);
 app.configure(function(){
   app.set('port', process.env.PORT || 8888);
   app.set('views', __dirname + '/views');
