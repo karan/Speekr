@@ -34,7 +34,7 @@ var userSchema = new Schema({
   name: {
     type: String
   },
-  linkedinId: String,
+  fbId: String,
   // scores and levels for each language
   // format: levels.en.scores, or levels.en.level
   levels: Object

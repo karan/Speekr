@@ -45,10 +45,9 @@ app.configure(function(){
 
 // GET
 app.get('/', routes.index);
-app.get('/auth/linkedin', passport.authenticate("linkedin",
-  { scope: ['r_basicprofile', 'r_emailaddress'] }));
-app.get('/auth/linkedin/callback', 
-  passport.authenticate('linkedin', { failureRedirect: '/auth/error' }), 
+app.get('/auth/facebook', passport.authenticate("facebook", {scope:'email'}));
+app.get('/auth/facebook/callback', 
+  passport.authenticate('facebook', { failureRedirect: '/auth/error' }), 
   routes.authSuccess);
 app.get('/auth/error', routes.authError);
 

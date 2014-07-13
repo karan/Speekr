@@ -2,7 +2,7 @@
   This is a wrapper for all code used for user authentication.
 */
 
-var LinkedInStrategy = require('passport-linkedin').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var Constants = require('./constants');
 
 
@@ -35,22 +35,20 @@ module.exports = function (passport) {
     })
   });
 
-  // Logic for linkedin strategy
-  passport.use(new LinkedInStrategy({
-      consumerKey: Constants.LINKEDIN.KEY,
-      consumerSecret: Constants.LINKEDIN.SECRET,
-      callbackURL: "http://speekr.herokuapp.com/auth/linkedin/callback",
-      profileFields: ['id', 'first-name', 'last-name', 'email-address', 'picture-url']
-    },
-    function(token, tokenSecret, profile, done) {
-      console.log(profile.displayName + ' logged in');
-      User.findOne({linkedinId : profile.id }, function(err, oldUser) {
+  // Logic for facebook strategy
+  passport.use(new FacebookStrategy({
+    clientID: Constants.Facebook.APPID,
+    clientSecret: Constants.Facebook.SECRET,
+    callbackURL: Constants.Facebook.CALLBACK
+  },
+  function(token, tokenSecret, profile, done) {
+    console.log(profile);
+    console.log('facebook authentication for ' + profile.displayName)
+    User.findOne({$or: [{fbId : profile.id }, {email: profile.emails[0].value}]}, function(err, oldUser) {
       if (oldUser) {
-        console.log("old user detected");
         return done(null, oldUser);
       } else {
         if (err) return done(err);
-        console.log("new user found");
 
         new User({
           linkedinId: profile.id,
@@ -72,7 +70,6 @@ module.exports = function (passport) {
         });
       }
     });
-    }
-  ));
+  }));
 
 }
