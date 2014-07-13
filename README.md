@@ -1,7 +1,11 @@
 Speekr
 ======
 
-Improve your fucking accent
+Simple app to help learn spoken languages using experimental Chrome APIs. LinkedIn Hack Day 2014 project.
+
+### Basic Idea
+
+Basically, what we wanted to do was play with experimental Speech Synthesis and Web Speech API's to make something useful and cool. This simple app will help you learn spoken languages in native accent. Sign in and select the language you like. You'll see and hear the native prononciation of a word/phrase which you then have to repeat.
 
 ### Quickstart
 
